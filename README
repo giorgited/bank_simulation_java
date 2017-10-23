@@ -1,0 +1,6 @@
+TO RUN THE PROJECT:
+
+1. OPEN GIT BASH AND
+2. CD INTO DIRECTORY
+3. $ javac *.java;
+4  $ java Project2
