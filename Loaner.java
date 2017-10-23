@@ -28,8 +28,9 @@ public class Loaner implements Runnable{
         cust_number = Bank.loan_queue.remove();
         System.out.println("Loan Officer serving customer " + cust_number);
         int loan_amount = Bank.customer_obj[cust_number].loanAmount;
+        TaskDelay(Bank.lOANER_TASK_TIME); //sleep for 4 minutes 
         System.out.println("Loan Officer " + " processes loan of $ " + loan_amount +  " for customer: " + cust_number);    
-        Bank.customer_obj[cust_number].balance -= loan_amount;
+        Bank.customer_obj[cust_number].balance -= loan_amount;        
     }
     void loaner_created() { //logger
         System.out.println("Loan Officer " + " created");
@@ -43,5 +44,13 @@ public class Loaner implements Runnable{
         } catch (InterruptedException e) {
 
         }
+    }
+    
+    void TaskDelay(int amount){
+        try        
+        {
+            Thread.sleep(amount);
+        } 
+        catch(InterruptedException ex) {}
     }
 }

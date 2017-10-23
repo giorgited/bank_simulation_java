@@ -3,7 +3,6 @@ Giorgi Tediashvili
 CS4348 Project 2
 10/28/2017
  */
-
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.Semaphore;
@@ -40,6 +39,8 @@ public class Teller implements Runnable{
         int transactionType = Bank.customer_obj[cust_number].transactionType;
         int transactionAmount = Bank.customer_obj[cust_number].transactionAmount;
         
+        TaskDelay(Bank.TELLER_TASK_TIME); //sleep for 4 minutes 
+        
         if (transactionType == 1){  //deposit
             Bank.customer_obj[cust_number].balance += transactionAmount;
             System.out.println("Teller " + tellerNumber + " processes deposit of $ " + transactionAmount +  " for customer: " + cust_number); 
@@ -60,5 +61,12 @@ public class Teller implements Runnable{
         } catch (InterruptedException e) {
 
         }
+    }
+    void TaskDelay(int amount){
+        try        
+        {
+            Thread.sleep(amount);
+        } 
+        catch(InterruptedException ex) {}
     }
 }

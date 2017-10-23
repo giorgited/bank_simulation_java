@@ -36,18 +36,29 @@ public class Customer implements Runnable{
                     loan_request(); 
                     signal(Bank.ProcessLoan);
                     wait(Bank.reciept);
-                    leave_bank();
+                    get_cash_and_reciept_and_leave();
                     signal(Bank.leave_loaner);
                     break;
-                default:            //teller
+                case 2:            //teller withdrawal
                     enter_in_teller_queue();
                     wait(Bank.Teller);
                     signal(Bank.ready_for_teller);
                     wait(Bank.ready_for_customer);
-                    transaction_request(); //add work to queue                    
+                    withdraw(GetRandomTransactionAmount()); //add work to queue                    
                     signal(Bank.ProcessTransaction);
                     wait(Bank.reciept);
-                    leave_bank();
+                    get_cash_and_reciept_and_leave();
+                    signal(Bank.leave_teller); 
+                    break;
+                case 1:            //teller deposit
+                    enter_in_teller_queue();
+                    wait(Bank.Teller);
+                    signal(Bank.ready_for_teller);
+                    wait(Bank.ready_for_customer);
+                    deposit(GetRandomTransactionAmount()); //add work to queue                    
+                    signal(Bank.ProcessTransaction);
+                    wait(Bank.reciept);
+                    get_reciept_and_leave();
                     signal(Bank.leave_teller); 
                     break;
             }       
@@ -62,7 +73,12 @@ public class Customer implements Runnable{
     void cust_enterBank() {        
         System.out.println("Customer " + custNumber + " enters Bank");        
     }
-    void leave_bank() {
+    void get_cash_and_reciept_and_leave() {
+        TaskDelay(60000);
+        System.out.println("Customer " + custNumber + " leaves bank");
+    }
+    void get_reciept_and_leave() {
+        TaskDelay(60000);
         System.out.println("Customer " + custNumber + " leaves bank");
     }
     
@@ -70,18 +86,23 @@ public class Customer implements Runnable{
     void enter_in_teller_queue(){
         Bank.teller_queue.add(custNumber);
     }
-    void transaction_request(){
+    void deposit(int amount){
         Bank.teller_queue.add(custNumber);
-        
-        transactionAmount = GetRandomTransactionAmount();
-        String transactionDescription = "";
-        
-        if (transactionType == 1) transactionDescription = "Deposit";
-        else transactionDescription = "Withdrawal";
+        transactionAmount = amount;
         
         System.out.println("Customer " + custNumber + " requests of teller " + tellerNumber + 
-                            " to make a " + transactionDescription + " of $" + transactionAmount);
+                            " to make a deposit of $" + transactionAmount); 
         
+        TaskDelay(Bank.CUSTOMER_TASK_TIME);
+    }
+    void withdraw(int amount){
+        Bank.teller_queue.add(custNumber);
+        transactionAmount = amount;
+        
+        TaskDelay(Bank.CUSTOMER_TASK_TIME);   //sleep for 1 minute
+        
+        System.out.println("Customer " + custNumber + " requests of teller " + tellerNumber + 
+                            " to make a withdraw of $" + transactionAmount);          
     }
    
     //**** LOANER FUNCTIONS ****
@@ -89,6 +110,7 @@ public class Customer implements Runnable{
         Bank.loan_queue.add(custNumber);
         System.out.println("Customer " + custNumber + " asks Loaner for $" + loanAmount );
         this.loanAmount = GetRandomTransactionAmount();
+        TaskDelay(Bank.CUSTOMER_TASK_TIME);
     }
     
     //***** SEMAPHORS *****
@@ -111,5 +133,12 @@ public class Customer implements Runnable{
     int GetRandomTransactionAmount(){
         Random r = new Random();
         return (r.nextInt(5) + 1) * 100;
+    }
+    void TaskDelay(int amount){
+        try        
+        {
+            Thread.sleep(amount);
+        } 
+        catch(InterruptedException ex) {}
     }
 }
