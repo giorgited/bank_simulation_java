@@ -74,11 +74,11 @@ public class Customer implements Runnable{
         System.out.println("Customer " + custNumber + " enters Bank");        
     }
     void get_cash_and_reciept_and_leave() {
-        TaskDelay(60000);
+        TaskDelay(Bank.CUSTOMER_TASK_TIME);
         System.out.println("Customer " + custNumber + " leaves bank");
     }
     void get_reciept_and_leave() {
-        TaskDelay(60000);
+        TaskDelay(Bank.CUSTOMER_TASK_TIME);
         System.out.println("Customer " + custNumber + " leaves bank");
     }
     

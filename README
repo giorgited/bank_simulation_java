@@ -4,3 +4,103 @@ TO RUN THE PROJECT:
 2. CD INTO DIRECTORY
 3. $ javac *.java;
 4  $ java Project2
+
+
+SAMPLE RUN:
+Customer 0 created
+Customer 4 created
+Loan Officer  created
+Customer 3 created
+Customer 2 created
+Customer 0 enters Bank
+Customer 3 enters Bank
+Customer 3 asks Loaner for $0
+Customer 4 enters Bank
+Customer 1 created
+Customer 1 enters Bank
+Customer 2 enters Bank
+Teller 0 created
+Teller 1 created
+Customer 0 requests of teller 0 to make a deposit of $100
+Customer 4 requests of teller 1 to make a withdraw of $100
+Loan Officer serving customer 3
+Teller 1 begins serving customer 4
+Teller 0 begins serving customer 0
+Loan Officer  processes loan of $ 200 for customer: 3
+Teller 0 processes deposit of $ 100 for customer: 0
+Teller 1 processes withdrawal of $ 100 for customer: 4
+Customer 3 leaves bank
+Customer 3 enters Bank
+Customer 3 asks Loaner for $200
+Customer 4 leaves bank
+Customer 0 leaves bank
+Customer 0 enters Bank
+Customer 4 enters Bank
+Customer 2 requests of teller 1 to make a deposit of $200
+Loan Officer serving customer 3
+Loan Officer  processes loan of $ 300 for customer: 3
+Customer 1 requests of teller 0 to make a withdraw of $100
+Teller 0 begins serving customer 1
+Teller 1 begins serving customer 2
+Customer 3 leaves bank
+Customer 3 enters Bank
+Customer 3 asks Loaner for $300
+Teller 0 processes withdrawal of $ 100 for customer: 1
+Teller 1 processes deposit of $ 200 for customer: 2
+Loan Officer serving customer 3
+Customer 2 leaves bank
+Customer 1 leaves bank
+Customer 1 enters Bank
+Customer 2 enters Bank
+Customer 0 requests of teller 0 to make a deposit of $200
+Loan Officer  processes loan of $ 300 for customer: 3
+Customer 4 requests of teller 1 to make a withdraw of $400
+Teller 0 begins serving customer 0
+Teller 1 begins serving customer 4
+Customer 3 leaves bank
+Teller 1 processes withdrawal of $ 400 for customer: 4
+Teller 0 processes deposit of $ 200 for customer: 0
+Customer 0 leaves bank
+Customer 4 leaves bank
+Customer 4 enters Bank
+Customer 0 enters Bank
+Customer 2 requests of teller 1 to make a deposit of $200
+Customer 1 requests of teller 0 to make a withdraw of $300
+Teller 1 begins serving customer 0
+Teller 0 begins serving customer 4
+Teller 0 processes withdrawal of $ 400 for customer: 4
+Teller 1 processes deposit of $ 200 for customer: 0
+Customer 2 leaves bank
+Customer 1 leaves bank
+Customer 1 enters Bank
+Customer 2 enters Bank
+Customer 0 requests of teller 1 to make a deposit of $400
+Customer 4 requests of teller 0 to make a withdraw of $100
+Teller 0 begins serving customer 1
+Teller 1 begins serving customer 2
+Teller 0 processes withdrawal of $ 300 for customer: 1
+Teller 1 processes deposit of $ 200 for customer: 2
+Customer 0 leaves bank
+Customer 4 leaves bank
+Customer 0 is joined by main
+Customer 2 requests of teller 1 to make a deposit of $300
+Customer 1 requests of teller 0 to make a withdraw of $100
+Teller 0 begins serving customer 1
+Teller 1 begins serving customer 2
+Teller 1 processes deposit of $ 300 for customer: 2
+Teller 0 processes withdrawal of $ 100 for customer: 1
+Customer 2 leaves bank
+Customer 1 leaves bank
+Customer 1 is joined by main
+Customer 2 is joined by main
+Customer 3 is joined by main
+Customer 4 is joined by main
+               Bank Simulation Summary
+                Ending Balance    Loan Amount
+     Customer 0           1500              0
+     Customer 1            500              0
+     Customer 2           1700              0
+     Customer 3            200            300
+     Customer 4            100              0
+
+         Totals           4000            300
