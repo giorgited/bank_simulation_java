@@ -36,9 +36,9 @@ public class Bank {
     public static Thread[] tellerThreads = new Thread[totalTellers];
 
     // *** TIMER CONSTANTS ***//
-    public static final int TELLER_TASK_TIME = 600;//24000;
-    public static final int CUSTOMER_TASK_TIME = 600;//60000;
-    public static final int lOANER_TASK_TIME = 240;//24000;
+    public static final int TELLER_TASK_TIME = 100; //1 minutes -> 1/10sec;
+    public static final int CUSTOMER_TASK_TIME = 400;//4 minutes -> 4/10sec;
+    public static final int lOANER_TASK_TIME = 100;//1 minute -> 1/10sec;
     // **** oTHER *** //
     public static Queue < Integer > loan_queue = new ConcurrentLinkedQueue < > ();
     public static Queue < Integer > teller_queue = new ConcurrentLinkedQueue < > ();
