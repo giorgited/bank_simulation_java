@@ -43,4 +43,6 @@ public class Bank {
     public static Queue < Integer > loan_queue = new ConcurrentLinkedQueue < > ();
     public static Queue < Integer > teller_queue = new ConcurrentLinkedQueue < > ();
     
+    //TODO: add in customers info here (balance, custNum, loanAmount) and use mutex to update on requests
+    
 }

@@ -13,8 +13,8 @@ public class Customer implements Runnable{
     //loan related vraibles
     public int loanAmount;
     //teller related varaibles
-    public int transactionType; 
-    public int transactionAmount;
+    public int transactionType;                 //TODO: move this variables out to bank class 
+    public int transactionAmount;               //TODO: implement a mutex
     public int tellerNumber;
     
     
